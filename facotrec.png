@@ -1,0 +1,29 @@
+from graphviz import Digraph
+
+# Create a Digraph object
+dot = Digraph(comment='Combined Cataract & Glaucoma Surgery Flowchart')
+
+# Add nodes
+dot.node('A', 'Combined Cataract & Glaucoma Surgery', shape='box', style='filled', color='lightblue')
+
+dot.node('B', '>2 medications for IOP control', shape='box', style='filled', color='lightblue')
+dot.node('C', 'younger age', shape='box', style='filled', color='lightblue')
+dot.node('D', 'high risk / difficult glaucomas', shape='box', style='filled', color='lightblue')
+dot.node('E', 'monocular', shape='box', style='filled', color='lightblue')
+
+dot.node('F', 'significant cupping or field loss', shape='box', style='filled', color='lightblue')
+dot.node('G', 'unable to tolerate 2 separate surgeries', shape='box', style='filled', color='lightblue')
+dot.node('H', 'drop allergies / contraindications', shape='box', style='filled', color='lightblue')
+
+# Add edges
+dot.edge('A', 'B')
+dot.edge('A', 'C')
+dot.edge('A', 'D')
+dot.edge('A', 'E')
+
+dot.edge('B', 'F')
+dot.edge('C', 'G')
+dot.edge('D', 'H')
+
+# Save and render the flowchart
+dot.render('combined_cataract_glaucoma_surgery_flowchart', format='png')
